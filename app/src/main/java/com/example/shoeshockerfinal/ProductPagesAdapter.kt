@@ -8,20 +8,21 @@ import com.example.shoeshockerfinal.databinding.ProductRecyclerviewLayoutBinding
 class ProductPagesAdapter(private val data: List<ProductPagesModel>,
 ): RecyclerView.Adapter<ProductPagesAdapter.ProductDataViewHolder>() {
 
+    fun seeMe():Boolean{
 
+        return true
+    }
     override fun onCreateViewHolder(parent: ViewGroup,viewType: Int): ProductDataViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ProductRecyclerviewLayoutBinding.inflate(layoutInflater,parent,false)
         return ProductDataViewHolder(binding)
     }
 
-
     override fun getItemCount() = data.size
 
     override fun onBindViewHolder(holder: ProductDataViewHolder, position: Int) {
         holder.bind(data[position])
     }
-
 
     class ProductDataViewHolder(
         private val binding: ProductRecyclerviewLayoutBinding
