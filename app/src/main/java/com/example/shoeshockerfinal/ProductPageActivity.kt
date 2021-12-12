@@ -14,7 +14,14 @@ class ProductPageActivity: AppCompatActivity() {
         setContentView(binding.root)
 
 
-        val products = ShoeShockerRepository.getProduct()
+
+
+
+
 
     }
 }
+
+
+
+

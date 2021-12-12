@@ -5,13 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoeshockerfinal.databinding.ProductRecyclerviewLayoutBinding
 
-class ProductPagesAdapter(private val data: List<ProductPagesModel>,
+class ProductPagesAdapter(private val data:MutableList<ShoeModel>,
 ): RecyclerView.Adapter<ProductPagesAdapter.ProductDataViewHolder>() {
 
-    fun seeMe():Boolean{
-
-        return true
-    }
     override fun onCreateViewHolder(parent: ViewGroup,viewType: Int): ProductDataViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ProductRecyclerviewLayoutBinding.inflate(layoutInflater,parent,false)
@@ -28,18 +24,12 @@ class ProductPagesAdapter(private val data: List<ProductPagesModel>,
         private val binding: ProductRecyclerviewLayoutBinding
         ): RecyclerView.ViewHolder(binding.root) {
 
-            fun bind(productModel: ProductPagesModel) {
+            fun bind(shoeModel: ShoeModel) {
                 binding.apply {
-                productViewTitle.text = productModel.productTitle
-                productImageView1.setImageResource(productModel.productImage1)
-                productImageView2.setImageResource(productModel.productImage2)
-                productImageView3.setImageResource(productModel.productImage3)
-                productImageView4.setImageResource(productModel.productImage4)
-                productDescription1.text = productModel.Description1
-                productDescription2.text = productModel.Description2
-                productDescription3.text = productModel.Description3
-                productDescription4.text = productModel.Description4
-                productViewPrice.text = productModel.productPrice
+                    productViewTitle.text = shoeModel.productTitle
+                    productImages.setImageResource(shoeModel.productImages[layoutPosition])
+                    descriptionTextView.text = shoeModel.productDescription
+                    productViewPrice.text = shoeModel.productPrice.toString()
                 }
         }
     }

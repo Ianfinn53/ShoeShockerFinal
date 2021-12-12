@@ -21,9 +21,6 @@ class ShoeSelectionAdapter (private val data: List<ShoeModel>,
     override fun onBindViewHolder(holder: ShoeDataViewHolder, position: Int) {
         val shoe = data[position]
         holder.bind(shoe)
-        holder.itemView.setOnClickListener{
-            onClick(shoe)
-        }
           }
 
 
@@ -35,9 +32,9 @@ class ShoeSelectionAdapter (private val data: List<ShoeModel>,
 
         fun bind(shoeModel: ShoeModel){
             binding.apply {
-                shoeImage.setImageResource(shoeModel.image)
-                titleOfShoe.text = shoeModel.title
-                priceOfShoe.text = shoeModel.price
+                titleOfShoe.text = shoeModel.productTitle
+                priceOfShoe.text = shoeModel.productPrice.toString()
+                shoeImage.setImageResource(shoeModel.productImages.first())
             }
         }
 
