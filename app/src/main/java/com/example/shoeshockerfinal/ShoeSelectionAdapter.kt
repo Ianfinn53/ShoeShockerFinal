@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoeshockerfinal.databinding.LayoutShoeListItemsBinding
 
-class ShoeSelectionAdapter (private val data: List<ShoeModel>,
-                            private val onClick: (ShoeModel) -> Unit
+class ShoeSelectionAdapter (
+    private val data: List<ShoeModel>,
+    private val onClick: (ShoeModel) -> Unit
 ): RecyclerView.Adapter<ShoeSelectionAdapter.ShoeDataViewHolder>() {
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):ShoeDataViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -21,13 +21,13 @@ class ShoeSelectionAdapter (private val data: List<ShoeModel>,
     override fun onBindViewHolder(holder: ShoeDataViewHolder, position: Int) {
         val shoe = data[position]
         holder.bind(shoe)
-          }
-
-
-
+        holder.itemView.setOnClickListener{
+            onClick(data[position])
+        }
+    }
 
     class ShoeDataViewHolder(
-    private val binding: LayoutShoeListItemsBinding
+        private val binding: LayoutShoeListItemsBinding
     ):RecyclerView.ViewHolder(binding.root) {
 
         fun bind(shoeModel: ShoeModel){
