@@ -6,23 +6,11 @@ import models.TitleModel
 
 object ShoeShockerRepository {
 
-    fun getTitle() = titlePage
-
-    fun getProduct(product: String): List<ShoeModel>{
-        return when (product){
-            "Men's UA HOVR™ Infinite 3 Storm Running Shoes" -> infinite3
-            "Men's UA HOVR™ Sonic 4 Running Shoes" -> sonic4
-            "Men's UA Charged Assert 9 Running Shoes" -> charged9
-            "Men's UA HOVR™ Phantom 2 Storm Running Shoes" -> phantom2
-            else -> emptyList()
-        }
-    }
-
     private val titlePage = mutableListOf(
-        TitleModel("Men's UA HOVR™ Infinite 3 Storm Running Shoes", 140, R.drawable.infinite3_1),
-        TitleModel("Men's UA HOVR™ Sonic 4 Running Shoes", 110, R.drawable.sonic4_1),
-        TitleModel("Men's UA Charged Assert 9 Running Shoes", 70, R.drawable.charged9_1),
-        TitleModel("Men's UA HOVR™ Phantom 2 Storm Running Shoes", 160, R.drawable.phantom2_1)
+        TitleModel("Infinite 3 Storm Running Shoes", 140, R.drawable.infinite3_1),
+        TitleModel("Sonic 4 Running Shoes", 110, R.drawable.sonic4_1),
+        TitleModel("Charged Assert 9 Running Shoes", 70, R.drawable.charged9_1),
+        TitleModel("Phantom 2 Storm Running Shoes", 160, R.drawable.phantom2_1)
 
     )
 
@@ -81,7 +69,17 @@ object ShoeShockerRepository {
         R.drawable.phantom2_4)
     )
 
+    fun getTitle() = titlePage
 
+    fun getProduct(product: String): List<ShoeModel>{
+        return when (product){
+            "Infinite 3 Storm Running Shoes" -> infinite3
+            "Sonic 4 Running Shoes" -> sonic4
+            "Charged Assert 9 Running Shoes" -> charged9
+            "Phantom 2 Storm Running Shoes" -> phantom2
+            else -> emptyList()
+        }
+    }
 
 
 
