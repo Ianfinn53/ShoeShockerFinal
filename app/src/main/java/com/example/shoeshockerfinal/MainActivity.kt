@@ -1,6 +1,7 @@
 package com.example.shoeshockerfinal
 
 
+import adapters.ShoeSelectionAdapter
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,16 +20,23 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.productList.apply {
-            adapter = ShoeSelectionAdapter(ShoeShockerRepository.getShoes()
+        binding.productSelection.apply {
+            adapter = ShoeSelectionAdapter(
+                ShoeShockerRepository.getTitle()
             ) { shoe ->
                 val intent = Intent(this@MainActivity, ProductPageActivity::class.java)
-                    intent.putExtra(SHOE_TITLE, shoe.productTitle)
+                    intent.putExtra(SHOE_TITLE, shoe.title)
                 startActivity(intent)
             }
             layoutManager = LinearLayoutManager(this@MainActivity)
             setHasFixedSize(true)
         }
     }
+
+
+
+
+
+
 }
 

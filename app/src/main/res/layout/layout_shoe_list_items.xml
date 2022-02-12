@@ -30,14 +30,6 @@
             app:layout_constraintTop_toBottomOf="@id/shoe_image" />
 
         <TextView
-            android:id="@+id/move_to_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title_of_shoe" />
-
-        <TextView
             android:id="@+id/price_of_shoe"
             android:layout_width="wrap_content"
             android:layout_height="0dp"

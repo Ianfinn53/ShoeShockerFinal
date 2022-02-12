@@ -1,12 +1,16 @@
-package com.example.shoeshockerfinal
+package adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.shoeshockerfinal.R
+import models.ShoeModel
 import com.example.shoeshockerfinal.databinding.ProductRecyclerviewLayoutBinding
 
-class ProductPagesAdapter(private val data:MutableList<ShoeModel>,
-): RecyclerView.Adapter<ProductPagesAdapter.ProductDataViewHolder>() {
+
+class ProductPagesAdapter(
+    private val data: List<ShoeModel>,
+)   : RecyclerView.Adapter<ProductPagesAdapter.ProductDataViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup,viewType: Int): ProductDataViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -27,12 +31,20 @@ class ProductPagesAdapter(private val data:MutableList<ShoeModel>,
             fun bind(shoeModel: ShoeModel) {
                 binding.apply {
                     productViewTitle.text = shoeModel.productTitle
-                    productImages.setImageResource(shoeModel.productImages[layoutPosition])
                     descriptionTextView.text = shoeModel.productDescription
                     productViewPrice.text = shoeModel.productPrice.toString()
+                    imageView1.setImageResource(shoeModel.productImages1)
+                    imageView2.setImageResource(shoeModel.productImages2)
+                    imageView3.setImageResource(shoeModel.productImages3)
+                    imageView4.setImageResource(shoeModel.productImages4)
+
                 }
         }
     }
+
 }
+
+
+
 
 

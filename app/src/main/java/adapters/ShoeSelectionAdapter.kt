@@ -1,16 +1,18 @@
-package com.example.shoeshockerfinal
+package adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import models.ShoeModel
 import com.example.shoeshockerfinal.databinding.LayoutShoeListItemsBinding
+import models.TitleModel
 
-class ShoeSelectionAdapter (
-    private val data: List<ShoeModel>,
-    private val onClick: (ShoeModel) -> Unit
+class ShoeSelectionAdapter(
+    private val data: MutableList<TitleModel>,
+    private val onClick: (TitleModel) -> Unit
 ): RecyclerView.Adapter<ShoeSelectionAdapter.ShoeDataViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):ShoeDataViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoeDataViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = LayoutShoeListItemsBinding.inflate(layoutInflater, parent, false)
         return ShoeDataViewHolder(binding)
@@ -30,11 +32,11 @@ class ShoeSelectionAdapter (
         private val binding: LayoutShoeListItemsBinding
     ):RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(shoeModel: ShoeModel){
+        fun bind(titleModel: TitleModel){
             binding.apply {
-                titleOfShoe.text = shoeModel.productTitle
-                priceOfShoe.text = shoeModel.productPrice.toString()
-                shoeImage.setImageResource(shoeModel.productImages.first())
+                titleOfShoe.text = titleModel.title
+                priceOfShoe.text = titleModel.price.toString()
+                shoeImage.setImageResource(titleModel.image)
             }
         }
 
