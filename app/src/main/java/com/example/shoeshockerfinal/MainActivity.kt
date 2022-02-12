@@ -25,7 +25,8 @@ class MainActivity : AppCompatActivity() {
                 ShoeShockerRepository.getTitle()
             ) { shoe ->
                 val intent = Intent(this@MainActivity, ProductPageActivity::class.java)
-                    intent.putExtra(SHOE_TITLE, shoe.title)
+                //Here you pass the title.  look at the constant.
+                intent.putExtra(SHOE_TITLE, shoe.title)
                 startActivity(intent)
             }
             layoutManager = LinearLayoutManager(this@MainActivity)

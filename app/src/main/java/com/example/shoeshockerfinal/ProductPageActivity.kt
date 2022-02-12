@@ -18,6 +18,10 @@ class ProductPageActivity: AppCompatActivity() {
         val binding = ProductPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // here it's looking for shoePicture, but the problem is you only passed it the title.
+        // thus all you have is nulls, or ""
+        // consider passing all the data, or adding a function to pass and id, and look up the record
+        //  by that id.
         val shoes = intent.getStringExtra(SHOEPICTURE).orEmpty()
         val products = ShoeShockerRepository.getProduct(shoes)
 
